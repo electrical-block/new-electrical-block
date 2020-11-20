@@ -1,0 +1,46 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "extensions": {
+        "recommendations": [
+            "christian-kohler.npm-intellisense",
+            "christian-kohler.path-intellisense",
+            "dbaeumer.vscode-eslint",
+            "formulahendry.auto-close-tag",
+            "ionutvmi.path-autocomplete",
+            "naumovs.color-highlight",
+            "octref.vetur",
+            "mrmlnc.vscode-scss",
+            "wix.vscode-import-cost",
+            "coenraads.bracket-pair-colorizer",
+            "editorconfig.editorconfig"
+        ],
+    },
+    "settings": {
+        "npm.packageManager": "npm",
+        "vetur.validation.template": true,
+        // "vetur.format.defaultFormatter.js": "none",
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "eslint.validate": [
+            "vue",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+        ],
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true,
+            "source.fixAll.style": true
+        },
+        "eslint.run": "onSave",
+        "eslint.format.enable": true,
+        "editor.formatOnSave": true,
+        "importCost.javascriptExtensions": [
+            "\\.jsx?$",
+            "\\.tsx?$",
+            "\\.vue$"
+        ],
+    }
+}
