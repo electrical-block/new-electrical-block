@@ -66,9 +66,9 @@ export default {
   components: { Item },
   data () {
     return {
-      items: {}, // 物件屬性與座標 { is: item, position: { id: id, TransformX: 200, TransformY: 30, TouchCom_fun: this.TouchItem_, TouchPin__fun: this.TouchPin_ } }
-      pins: {}, // PIN 更新陣列 { id:{ pin1: { l: { x: 0, y: 0 }, c: { cx: 0, cy: -15 } }, pin2: { l: { x: 0, y: 10 }, c: { cx: 0, cy: 15 } } }}
-      lines: {}, // 所有線的位置 {id: { position1: { x: 0, y: 20 }, position2: { x: 10, y: 30 } }}
+      items: {},
+      pins: {},
+      lines: {},
       svg: {
         x: 0,
         y: 0,
