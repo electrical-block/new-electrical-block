@@ -18,8 +18,6 @@ export default function touchPin (event, pinIndex, itemId, that) {
       that.addLine(lineMove.id)
 
       // one of positions of line is equal to one of position of pin
-      console.log(123)
-      console.log(pins)
       lines[lineMove.id].position1 = pins[itemId][pinIndex].svgCoordinate
 
       // init another of position of line
@@ -27,8 +25,6 @@ export default function touchPin (event, pinIndex, itemId, that) {
       lines[lineMove.id].position2.y = mousePosition.y
     } else {
       // if mousedown at another specified pin
-      console.log(456)
-      console.log(pins)
       lines[lineMove.id].position2 = pins[itemId][pinIndex].svgCoordinate
       lineMove.isMove = false
     }

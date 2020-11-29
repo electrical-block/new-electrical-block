@@ -47,7 +47,6 @@ export default {
 
     this.svgInnerHTML = itemDescription[this.item.name].innerHTML
     this.pins = itemDescription[this.item.name].pins
-    console.log(this.pins)
   },
   methods: {
     touchItem (event) {
