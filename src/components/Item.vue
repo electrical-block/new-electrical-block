@@ -1,6 +1,6 @@
 <template>
   <g
-    :id="item.id"
+    :id="itemId"
     :transform="
       'translate(' + item.position.transformX + ',' + item.position.transformY + ')'
     "
@@ -26,6 +26,10 @@
 <script>
 export default {
   props: {
+    itemId: {
+      type: String,
+      required: true
+    },
     item: {
       type: Object,
       required: true
@@ -47,10 +51,10 @@ export default {
   },
   methods: {
     touchItem (event) {
-      this.$emit('touch-item', event, this.item.id)
+      this.$emit('touch-item', event, this.itemId)
     },
     touchPin (event, pinIndex) {
-      this.$emit('touch-pin', event, pinIndex, this.item.id)
+      this.$emit('touch-pin', event, pinIndex, this.itemId)
     }
 
   }

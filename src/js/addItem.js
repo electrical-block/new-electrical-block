@@ -6,7 +6,6 @@ export default function addItem (itemName, that) {
 
   // add item to Canvas.items
   that.items[id] = {
-    id: id,
     name: itemName,
     position: {
       transformX: 200,

@@ -44,8 +44,9 @@
       </g>
       <g>
         <Item
-          v-for="(item, index) in items"
+          v-for="(item, itemId, index) in items"
           :key="index"
+          :item-id="itemId"
           :item="item"
           @touch-item="touchItem"
           @touch-pin="touchPin"
