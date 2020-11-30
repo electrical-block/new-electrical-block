@@ -19,15 +19,16 @@ export default function touchSvg (event, that) {
       // The mouse is found to be released while moving, and the flag is closed
       if (!event.buttons) {
         svgMove.isMove = false
-      }
+      } else {
       // difference between original mouse position and current mouse position (event.offsetX / event.offsetY)
       // Consider scale of svg, so use (svgMove.w / 600) and (svgMove.h / 300)
-      svgMove.x += (mouseX - event.offsetX) * (svgMove.w / 600)
-      svgMove.y += (mouseY - event.offsetY) * (svgMove.h / 300)
+        svgMove.x += (mouseX - event.offsetX) * (svgMove.w / 600)
+        svgMove.y += (mouseY - event.offsetY) * (svgMove.h / 300)
 
-      // mouse position is event position now
-      mouseX = event.offsetX
-      mouseY = event.offsetY
+        // mouse position is event position now
+        mouseX = event.offsetX
+        mouseY = event.offsetY
+      }
     }
 
     // When move item
@@ -35,8 +36,9 @@ export default function touchSvg (event, that) {
       // The mouse is found to be released while moving, and the flag is closed
       if (!event.buttons) {
         itemMove.isMove = false
+      } else {
+        that.touchItem(event, itemMove.id)
       }
-      that.touchItem(event, itemMove.id)
     }
 
     // // When move line
