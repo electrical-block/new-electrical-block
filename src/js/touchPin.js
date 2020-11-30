@@ -11,8 +11,6 @@ export default function touchPin (event, pinIndex, itemId, that) {
 
   if (event.type === 'mousedown') {
     if (!lineMove.isMove) {
-      lineMove.isMove = true
-
       // generate a new ID
       lineMove.id = SvgTool_.generateId()
       addLine(lineMove.id, that)
@@ -23,9 +21,12 @@ export default function touchPin (event, pinIndex, itemId, that) {
       // init another of position of line
       lines[lineMove.id].position2.x = mousePosition.x
       lines[lineMove.id].position2.y = mousePosition.y
+
+      lineMove.isMove = true
     } else {
       // if mousedown at another specified pin
       lines[lineMove.id].position2 = pins[itemId][pinIndex].svgCoordinate
+
       lineMove.isMove = false
     }
   } else if (event.type === 'mousemove') {
