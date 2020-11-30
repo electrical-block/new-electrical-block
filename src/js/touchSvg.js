@@ -16,6 +16,10 @@ export default function touchSvg (event, that) {
   } else if (event.type === 'mousemove') {
     // When move svg
     if (svgMove.isMove && !itemMove.isMove && !lineMove.isMove) {
+      // The mouse is found to be released while moving, and the flag is closed
+      if (!event.buttons) {
+        svgMove.isMove = false
+      }
       // difference between original mouse position and current mouse position (event.offsetX / event.offsetY)
       // Consider scale of svg, so use (svgMove.w / 600) and (svgMove.h / 300)
       svgMove.x += (mouseX - event.offsetX) * (svgMove.w / 600)
@@ -28,6 +32,10 @@ export default function touchSvg (event, that) {
 
     // When move item
     if (!svgMove.isMove && itemMove.isMove && !lineMove.isMove) {
+      // The mouse is found to be released while moving, and the flag is closed
+      if (!event.buttons) {
+        itemMove.isMove = false
+      }
       that.touchItem(event, itemMove.id)
     }
 
