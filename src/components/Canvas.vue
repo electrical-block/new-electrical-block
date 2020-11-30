@@ -15,7 +15,7 @@
       id="svg"
       width="600"
       height="300"
-      :viewBox="svg.x + ' ' + svg.y + ' ' + svg.w + ' ' + svg.h"
+      :viewBox="svgMove.x + ' ' + svgMove.y + ' ' + svgMove.w + ' ' + svgMove.h"
       @mousedown="touchSvg($event)"
       @mousemove="touchSvg($event)"
       @mouseup="touchSvg($event)"
@@ -70,7 +70,7 @@ export default {
       items: {},
       pins: {},
       lines: {},
-      svg: {
+      svgMove: {
         x: 0,
         y: 0,
         w: 600,
