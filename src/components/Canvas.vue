@@ -99,8 +99,8 @@ export default {
     touchItem (event, itemId) {
       touchItem(event, itemId, this)
     },
-    touchPin (event, pinId, itemId) {
-      touchPin(event, pinId, itemId, this)
+    touchPin (event, pinIndex, itemId) {
+      touchPin(event, pinIndex, itemId, this)
     },
     touchSvg (event) {
       touchSvg(event, this)
