@@ -18,7 +18,7 @@ export default class SvgTool {
     return { x: int(svgPoint.x.toFixed(0)), y: int(svgPoint.y.toFixed(0)) }
   }
 
-  generateUserId () {
+  generateId () {
     let date = Date.now()
 
     if (

@@ -2,7 +2,7 @@ import SvgTool from '@/js/svgTool.js'
 const SvgTool_ = new SvgTool()
 
 export default function addItem (itemName, that) {
-  const id = SvgTool_.generateUserId()
+  const id = SvgTool_.generateId()
 
   // add item to Canvas.items
   that.items[id] = {

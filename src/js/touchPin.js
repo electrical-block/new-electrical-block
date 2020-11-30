@@ -14,7 +14,7 @@ export default function touchPin (event, pinIndex, itemId, that) {
       lineMove.isMove = true
 
       // generate a new ID
-      lineMove.id = SvgTool_.generateUserId()
+      lineMove.id = SvgTool_.generateId()
       addLine(lineMove.id, that)
 
       // one of positions of line is equal to one of position of pin
