@@ -15,7 +15,7 @@ export default function touchPin (event, pinIndex, itemId, that) {
 
       // generate a new ID
       lineMove.id = SvgTool_.generateUserId()
-      that.addLine(lineMove.id)
+      addLine(lineMove.id, that)
 
       // one of positions of line is equal to one of position of pin
       lines[lineMove.id].position1 = pins[itemId][pinIndex].svgCoordinate
@@ -32,5 +32,12 @@ export default function touchPin (event, pinIndex, itemId, that) {
     // another of position of line is equal to the position of mouse
     lines[lineMove.id].position2.x = mousePosition.x
     lines[lineMove.id].position2.y = mousePosition.y
+  }
+}
+
+function addLine (lineId, that) {
+  that.lines[lineId] = {
+    position1: { x: 0, y: 0 },
+    position2: { x: 0, y: 0 }
   }
 }

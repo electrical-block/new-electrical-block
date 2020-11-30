@@ -90,12 +90,6 @@ export default {
     addItem (itemName) {
       addItem(itemName, this)
     },
-    addLine (lineId) {
-      this.lines[lineId] = {
-        position1: { x: 0, y: 0 },
-        position2: { x: 0, y: 0 }
-      }
-    },
     touchItem (event, itemId) {
       touchItem(event, itemId, this)
     },
