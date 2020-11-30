@@ -41,14 +41,14 @@ export default function touchSvg (event, that) {
   } else if (event.type === 'mousewheel') {
     if (event.deltaY < 0) {
       // Scale Up
-      svgMove.x -= svgMove.y * 0.05
-      svgMove.y -= svgMove.h * 0.05
+      svgMove.x -= event.offsetX * 0.1 * (svgMove.w / 600)
+      svgMove.y -= event.offsetY * 0.1 * (svgMove.h / 300)
       svgMove.w *= 1.1
       svgMove.h *= 1.1
     } else {
       // Scale down
-      svgMove.x += svgMove.w * 0.1
-      svgMove.y += svgMove.h * 0.1
+      svgMove.x += event.offsetX * 0.1 * (svgMove.w / 600)
+      svgMove.y += event.offsetY * 0.1 * (svgMove.h / 300)
       svgMove.w /= 1.1
       svgMove.h /= 1.1
     }
