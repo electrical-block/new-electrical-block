@@ -31,7 +31,13 @@
         height="300"
       />
       <g>
-        <path
+        <Line
+          v-for="(line, index) in lines"
+          :key="index"
+          :index="index"
+          :line="line"
+        />
+        <!--path
           v-for="(line, index) in lines"
           :id="index"
           :key="index"
@@ -40,7 +46,7 @@
           "
           stroke="#7cfc00"
           stroke-width="5"
-        />
+        /-->
       </g>
       <g>
         <Item
@@ -57,14 +63,14 @@
 </template>
 <script>
 import Item from '@/components/Item.vue'
-
+import Line from '@/components/Line.vue'
 import addItem from '@/js/addItem.js'
 import touchItem from '@/js/touchItem.js'
 import touchPin from '@/js/touchPin.js'
 import touchSvg from '@/js/touchSvg.js'
 
 export default {
-  components: { Item },
+  components: { Item, Line },
   data () {
     return {
       items: {},

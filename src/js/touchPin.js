@@ -16,29 +16,28 @@ export default function touchPin (event, pinIndex, itemId, that) {
       addLine(lineMove.id, that)
 
       // one of positions of line is equal to one of position of pin
-      lines[lineMove.id].position1 = pins[itemId][pinIndex].svgCoordinate
+      lines[lineMove.id][0] = pins[itemId][pinIndex].svgCoordinate
 
       // init another of position of line
-      lines[lineMove.id].position2.x = mousePosition.x
-      lines[lineMove.id].position2.y = mousePosition.y
+      lines[lineMove.id][lines[lineMove.id].length - 1].x = mousePosition.x
+      lines[lineMove.id][lines[lineMove.id].length - 1].y = mousePosition.y
 
       lineMove.isMove = true
     } else {
       // if mousedown at another specified pin
-      lines[lineMove.id].position2 = pins[itemId][pinIndex].svgCoordinate
+      lines[lineMove.id][lines[lineMove.id].length - 1] = pins[itemId][pinIndex].svgCoordinate
 
       lineMove.isMove = false
     }
   } else if (event.type === 'mousemove') {
     // another of position of line is equal to the position of mouse
-    lines[lineMove.id].position2.x = mousePosition.x
-    lines[lineMove.id].position2.y = mousePosition.y
+    lines[lineMove.id][lines[lineMove.id].length - 1].x = mousePosition.x
+    lines[lineMove.id][lines[lineMove.id].length - 1].y = mousePosition.y
   }
 }
 
 function addLine (lineId, that) {
-  that.lines[lineId] = {
-    position1: { x: 0, y: 0 },
-    position2: { x: 0, y: 0 }
-  }
+  // The first point is the starting point
+  // The end is the ending point
+  that.lines[lineId] = [{ x: 0, y: 0 }, { x: 0, y: 0 }]
 }

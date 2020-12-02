@@ -1,3 +1,6 @@
+import SvgTool_ from '@/js/svgTool.js'
+const SvgTool = new SvgTool_()
+
 var mouseX = 0
 var mouseY = 0
 
@@ -7,12 +10,17 @@ export default function touchSvg (event, that) {
   var lineMove = that.lineMove
 
   if (event.type === 'mousedown') {
-    // mousedown is meant already to move something
-    svgMove.isMove = true
+    if (lineMove.isMove) {
+      that.lines[lineMove.id][that.lines[lineMove.id].length - 1] = SvgTool.client2Svg(event)
+      that.lines[lineMove.id].push(SvgTool.client2Svg(event))
+    } else {
+      // mousedown is meant already to move something
+      svgMove.isMove = true
 
-    // record mouse position when mousedown
-    mouseX = event.offsetX
-    mouseY = event.offsetY
+      // record mouse position when mousedown
+      mouseX = event.offsetX
+      mouseY = event.offsetY
+    }
   } else if (event.type === 'mousemove') {
     // When move svg
     if (svgMove.isMove && !itemMove.isMove && !lineMove.isMove) {
