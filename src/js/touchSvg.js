@@ -67,8 +67,8 @@ export default function touchSvg (event, that) {
       svgMove.h *= 1.1
     } else {
       // Scale down
-      svgMove.x += event.offsetX * 0.1 * (svgMove.w / 600)
-      svgMove.y += event.offsetY * 0.1 * (svgMove.h / 300)
+      svgMove.x += event.offsetX * (1 / 11) * (svgMove.w / 600)
+      svgMove.y += event.offsetY * (1 / 11) * (svgMove.h / 300)
       svgMove.w /= 1.1
       svgMove.h /= 1.1
     }
