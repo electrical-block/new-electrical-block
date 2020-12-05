@@ -11,8 +11,10 @@ export default function touchSvg (event, that) {
 
   if (event.type === 'mousedown') {
     if (lineMove.isMove) {
-      that.lines[lineMove.id][that.lines[lineMove.id].length - 1] = SvgTool.client2Svg(event)
-      that.lines[lineMove.id].push(SvgTool.client2Svg(event))
+      if (SvgTool.client2Svg(event).x !== that.lines[lineMove.id][that.lines[lineMove.id].length - 2].x) {
+        that.lines[lineMove.id][that.lines[lineMove.id].length - 1] = SvgTool.client2Svg(event)
+        that.lines[lineMove.id].push(SvgTool.client2Svg(event))
+      }
     } else {
       // mousedown is meant already to move something
       svgMove.isMove = true
