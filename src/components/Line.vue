@@ -26,11 +26,11 @@ export default {
   methods: {
     d (line) {
       // https://i.imgur.com/ab4ywFf.png (示意圖)
-      var a = 20
       var d = 'M ' + line[0].x + ' ' + line[0].y
       var minShrinkLength = this.vectorLen(line[0], line[1])
       // Calculate the intermediate turn segment
       for (var i = 1; i < line.length - 1; i++) {
+        var a = 20
         // If this point is repeated with the next point, don't do this point
         if (line[i].x !== line[i + 1].x || line[i].y !== line[i + 1].y) {
           var one = line[i - 1]
