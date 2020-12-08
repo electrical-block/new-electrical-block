@@ -28,8 +28,7 @@
           :index="index"
           :line="line"
         />
-      </g>
-      <g>
+
         <Item
           v-for="(item, itemId, index) in items"
           :key="index"
