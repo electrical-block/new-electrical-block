@@ -1,12 +1,18 @@
 <template>
-  <Canvas />
+  <div style="display: flex; justify-content: space-around">
+    <Canvas />
+    <ItemTable />
+  </div>
 </template>
 
 <script>
 import Canvas from '@/components/Canvas.vue'
+import ItemTable from '@/components/ItemTable.vue'
+
 export default {
   components: {
-    Canvas
+    Canvas,
+    ItemTable
   }
 }
 </script>

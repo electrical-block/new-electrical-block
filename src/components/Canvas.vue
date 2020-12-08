@@ -1,16 +1,5 @@
 <template>
   <div>
-    <input
-      type="button"
-      value="增加電阻"
-      @mousedown="addItem('Resistor')"
-    >
-    <input
-      type="button"
-      value="增加LED"
-      @mousedown="addItem('Led')"
-    >
-
     <svg
       id="svg"
       width="600"
@@ -20,6 +9,8 @@
       @mousemove="touchSvg($event)"
       @mouseup="touchSvg($event)"
       @mousewheel="touchSvg($event)"
+      @drop="getDropItem($event)"
+      @dragover="allowDrop($event)"
     >
       <rect
         x="0"
@@ -51,9 +42,11 @@
     </svg>
   </div>
 </template>
+
 <script>
 import Item from '@/components/Item.vue'
 import Line from '@/components/Line.vue'
+
 import addItem from '@/js/addItem.js'
 import touchItem from '@/js/touchItem.js'
 import touchPin from '@/js/touchPin.js'
@@ -94,6 +87,14 @@ export default {
     },
     touchSvg (event) {
       touchSvg(event, this)
+    },
+    getDropItem (event) {
+      if (event.dataTransfer.getData('item-name') !== '') {
+        this.addItem(event.dataTransfer.getData('item-name'))
+      }
+    },
+    allowDrop (event) {
+      event.preventDefault()
     }
   }
 }
