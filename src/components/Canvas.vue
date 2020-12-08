@@ -37,16 +37,6 @@
           :index="index"
           :line="line"
         />
-        <!--path
-          v-for="(line, index) in lines"
-          :id="index"
-          :key="index"
-          :d="
-            'M ' + line.position1.x + ' ' + line.position1.y + ' L ' + line.position2.x + ' ' + line.position2.y
-          "
-          stroke="#7cfc00"
-          stroke-width="5"
-        /-->
       </g>
       <g>
         <Item
