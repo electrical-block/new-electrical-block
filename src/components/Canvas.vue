@@ -25,7 +25,7 @@
         <Line
           v-for="(line, index) in lines"
           :key="index"
-          :index="index"
+          :lineID="index"
           :line="line"
         />
 
