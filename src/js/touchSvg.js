@@ -14,7 +14,7 @@ export default function touchSvg (event, that) {
       const svgCoordinate = SvgTool.client2Svg(event.clientX, event.clientY)
       if (svgCoordinate.x !== that.lines[lineMove.id][that.lines[lineMove.id].length - 2].x) {
         that.lines[lineMove.id][that.lines[lineMove.id].length - 1] = svgCoordinate
-        that.lines[lineMove.id].push(svgCoordinate)
+        that.lines[lineMove.id].push({ x: svgCoordinate.x, y: svgCoordinate.y })
       }
     } else {
       // mousedown is meant already to move something
