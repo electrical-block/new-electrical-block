@@ -1,11 +1,11 @@
 export default class SvgTool {
-  client2Svg (event) {
+  client2Svg (x, y) {
     const svg = document.getElementById('svg')
     const clientPoint = svg.createSVGPoint()
     const currentTransformMatrix = svg.getScreenCTM()
 
-    clientPoint.x = event.clientX
-    clientPoint.y = event.clientY
+    clientPoint.x = x
+    clientPoint.y = y
 
     // convert coordinate to svg coordinate
     const svgPoint = clientPoint.matrixTransform(currentTransformMatrix.inverse())

@@ -4,7 +4,7 @@ const SvgTool_ = new SvgTool()
 export default function touchPin (event, pinIndex, itemId, that) {
   event.stopPropagation()
 
-  const mousePosition = SvgTool_.client2Svg(event)
+  const mousePosition = SvgTool_.client2Svg(event.clientX, event.clientY)
   var lineMove = that.lineMove
   var lines = that.lines
   var pins = that.pins

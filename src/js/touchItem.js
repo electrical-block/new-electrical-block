@@ -5,7 +5,7 @@ export default function touchItem (event, itemId, that) {
   event.stopPropagation()
 
   // get mouse position in svg coordinate
-  const mousePosition = SvgTool_.client2Svg(event)
+  const mousePosition = SvgTool_.client2Svg(event.clientX, event.clientY)
   var itemMove = that.itemMove
   var items = that.items
 
