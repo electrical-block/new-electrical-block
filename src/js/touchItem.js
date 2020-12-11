@@ -8,7 +8,7 @@ export default function touchItem (event, itemId, that) {
   const mousePosition = SvgTool_.client2Svg(event.clientX, event.clientY)
   var itemMove = that.itemMove
   var items = that.items
-
+  var pins = that.pins
   if (event.type === 'mousedown') {
     itemMove.isMove = true
     itemMove.id = itemId
@@ -26,5 +26,28 @@ export default function touchItem (event, itemId, that) {
     items[itemId].position.transformX = mousePosition.x - itemMove.dx
     items[itemId].position.transformY = mousePosition.y - itemMove.dy
     SvgTool_.updatePinsPosition(itemId, that)
+
+    // If the magnetic force triggers it will draw the object
+    const a = []
+    Object.keys(pins).forEach(Id => {
+      if (Id !== itemId) {
+        pins[Id].forEach(pin => {
+          a.push([pin.svgCoordinate.x, pin.svgCoordinate.y])
+        })
+      }
+    })
+    pins[itemMove.id].forEach(pin => {
+      a.forEach(aPin => {
+        if (calculateVectorLen(pin.svgCoordinate, { x: aPin[0], y: aPin[1] }) < 8) {
+          items[itemId].position.transformX = aPin[0] - pin.relativeCoordinate.cx
+          items[itemId].position.transformY = aPin[1] - pin.relativeCoordinate.cy
+          SvgTool_.updatePinsPosition(itemId, that)
+        }
+      })
+    })
   }
+}
+function calculateVectorLen (a, b) {
+  // Calculate length
+  return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2))
 }
