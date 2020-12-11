@@ -16,12 +16,12 @@
         x="0"
         y="0"
         fill="none"
-        stroke="#EB7B2D"
+        stroke="white"
         stroke-width="2"
         width="600"
         height="300"
       />
-      <g>
+      <g ref="drawingContainer">
         <Line
           v-for="(line, index) in lines"
           :key="index"
@@ -39,6 +39,10 @@
         />
       </g>
     </svg>
+    <br>
+    <button @click="zoomToFit">
+      zoom to fit
+    </button>
   </div>
 </template>
 
@@ -94,6 +98,24 @@ export default {
     },
     allowDrop (event) {
       event.preventDefault()
+    },
+    zoomToFit () {
+      const elementPositionAndSize = this.$refs.drawingContainer.getBBox()
+      var scaleRatio = 0
+
+      this.svgMove.x = (elementPositionAndSize.x - this.svgMove.w / 2 + elementPositionAndSize.width / 2)
+      this.svgMove.y = (elementPositionAndSize.y - this.svgMove.h / 2 + elementPositionAndSize.height / 2)
+
+      if (elementPositionAndSize.width / elementPositionAndSize.height > 2) {
+        scaleRatio = elementPositionAndSize.width / this.svgMove.w
+      } else {
+        scaleRatio = elementPositionAndSize.height / this.svgMove.h
+      }
+
+      this.svgMove.x -= 300 * (scaleRatio - 1) * (this.svgMove.w / 600)
+      this.svgMove.y -= 150 * (scaleRatio - 1) * (this.svgMove.h / 300)
+      this.svgMove.w *= scaleRatio
+      this.svgMove.h *= scaleRatio
     }
   }
 }
