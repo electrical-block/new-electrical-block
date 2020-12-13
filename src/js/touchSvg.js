@@ -10,6 +10,9 @@ export default function touchSvg (event, that) {
   var lineMove = that.lineMove
 
   if (event.type === 'mousedown') {
+    // Item lights up and off
+    if (itemMove.id !== null) that.items[itemMove.id].class = 'item-off'
+
     if (lineMove.isMove) {
       const svgCoordinate = SvgTool.client2Svg(event.clientX, event.clientY)
       if (svgCoordinate.x !== that.lines[lineMove.id][that.lines[lineMove.id].length - 2].x) {

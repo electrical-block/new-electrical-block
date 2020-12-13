@@ -11,8 +11,14 @@ export default function touchItem (event, itemId, that) {
   var pins = that.pins
   if (event.type === 'mousedown') {
     itemMove.isMove = true
-    itemMove.id = itemId
 
+    // Item lights 'up' and 'off'
+    // Close the previous
+    if (itemMove.id !== null) items[itemMove.id].class = 'item-off'
+    // Open this item
+    items[itemId].class = 'item-on'
+
+    itemMove.id = itemId
     const itemPosition = {
       x: items[itemId].position.transformX,
       y: items[itemId].position.transformY

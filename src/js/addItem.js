@@ -10,7 +10,8 @@ export default function addItem (itemName, that) {
     position: {
       transformX: 200,
       transformY: 30
-    }
+    },
+    class: 'item-off'
   }
 
   addItemPins(itemName, id, that)

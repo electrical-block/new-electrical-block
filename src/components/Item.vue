@@ -8,9 +8,8 @@
   >
     <!-- 未來待改，目前先用 v-html -->
     <!-- eslint-disable -->
-    <g v-html="svgInnerHTML"></g>
+    <g v-html="svgInnerHTML" :class=item.class></g>
     <!-- eslint-enable -->
-
     <circle
       v-for="(pin, index) in pins"
       :id="index"
@@ -71,5 +70,13 @@ export default {
   fill: red;
   r: 5;
   opacity: 1;
+}
+
+.item-off{
+  stroke : "none";
+}
+.item-on{
+  stroke :red;
+  stroke-width : "1em";
 }
 </style>

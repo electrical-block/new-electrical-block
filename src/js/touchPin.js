@@ -10,6 +10,9 @@ export default function touchPin (event, pinIndex, itemId, that) {
   var pins = that.pins
 
   if (event.type === 'mousedown') {
+    // Item lights up and off
+    if (that.itemMove.id !== null) that.items[that.itemMove.id].class = 'item-off'
+
     if (!lineMove.isMove) {
       // generate a new ID
       lineMove.id = SvgTool_.generateId()
