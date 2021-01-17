@@ -18,25 +18,12 @@ export default function addItem (itemName, that) {
 }
 
 function addItemPins (itemName, id, that) {
-  let pinPosition = {}
-
-  switch (itemName) {
-    case 'Resistor':
-      pinPosition = [
-        { svgCoordinate: { x: 0, y: 0 }, relativeCoordinate: { cx: 0, cy: -15 } },
-        { svgCoordinate: { x: 0, y: 10 }, relativeCoordinate: { cx: 0, cy: 15 } }
-      ]
-      break
-    case 'Led':
-      pinPosition = [
-        { svgCoordinate: { x: 0, y: 0 }, relativeCoordinate: { cx: 3, cy: -3 } },
-        { svgCoordinate: { x: 0, y: 10 }, relativeCoordinate: { cx: -5, cy: -3 } }
-      ]
-      break
-    default:
-      break
-  }
-
+  var itemDescription = require('@/json/itemDescription.json')
+  const pinPosition = []
+  itemDescription[itemName].pins.forEach(pin => {
+    pinPosition.push({ svgCoordinate: { x: 0, y: 0 }, relativeCoordinate: { cx: pin.cx, cy: pin.cy } })
+  })
+  console.log(pinPosition)
   that.pins[id] = pinPosition
   SvgTool_.updatePinsPosition(id, that)
 }
