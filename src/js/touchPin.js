@@ -31,6 +31,19 @@ export default function touchPin (event, pinIndex, itemId, that) {
       lines[lineMove.id][lines[lineMove.id].length - 1] = pins[itemId][pinIndex].svgCoordinate
 
       lineMove.isMove = false
+
+      // If there are duplicate segments, delete them
+      Object.keys(lines).forEach(LineId => {
+        if (LineId !== lineMove.id) {
+          if (lines[LineId][0] === lines[lineMove.id][0] && lines[LineId][lines[LineId].length - 1] === lines[lineMove.id][lines[lineMove.id].length - 1]) {
+            delete lines[LineId]
+          } else {
+            if (lines[LineId][0] === lines[lineMove.id][lines[lineMove.id].length - 1] && lines[LineId][lines[LineId].length - 1] === lines[lineMove.id][0]) {
+              delete lines[LineId]
+            }
+          }
+        }
+      })
     }
   } else if (event.type === 'mousemove') {
     // another of position of line is equal to the position of mouse

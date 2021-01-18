@@ -23,7 +23,6 @@ function addItemPins (itemName, id, that) {
   itemDescription[itemName].pins.forEach(pin => {
     pinPosition.push({ svgCoordinate: { x: 0, y: 0 }, relativeCoordinate: { cx: pin.cx, cy: pin.cy } })
   })
-  console.log(pinPosition)
   that.pins[id] = pinPosition
   SvgTool_.updatePinsPosition(id, that)
 }
