@@ -1,14 +1,14 @@
 import SvgTool from '@/js/svgTool.js'
 const SvgTool_ = new SvgTool()
 
-export default function touchItem (event, itemId, that) {
+export default function touchItem (event, itemId, than) {
   event.stopPropagation()
 
   // get mouse position in svg coordinate
   const mousePosition = SvgTool_.client2Svg(event.clientX, event.clientY)
-  var itemMove = that.itemMove
-  var items = that.items
-  var pins = that.pins
+  var itemMove = than.itemMove
+  var items = than.items
+  var pins = than.pins
   if (event.type === 'mousedown') {
     itemMove.isMove = true
 
@@ -31,7 +31,7 @@ export default function touchItem (event, itemId, that) {
     // calculate the transform coordinate of item
     items[itemId].position.transformX = mousePosition.x - itemMove.dx
     items[itemId].position.transformY = mousePosition.y - itemMove.dy
-    SvgTool_.updatePinsPosition(itemId, that)
+    SvgTool_.updatePinsPosition(itemId, than)
 
     // If the magnetic force triggers it will draw the object
     const a = []
@@ -44,10 +44,14 @@ export default function touchItem (event, itemId, that) {
     })
     pins[itemMove.id].forEach(pin => {
       a.forEach(aPin => {
+        console.log(calculateVectorLen(pin.svgCoordinate, { x: aPin[0], y: aPin[1] }))
         if (calculateVectorLen(pin.svgCoordinate, { x: aPin[0], y: aPin[1] }) < 8) {
-          items[itemId].position.transformX = aPin[0] - pin.relativeCoordinate.cx
-          items[itemId].position.transformY = aPin[1] - pin.relativeCoordinate.cy
-          SvgTool_.updatePinsPosition(itemId, that)
+          var UnitVector = SvgTool_.calculateUnitVector({ x: 0, y: 0 }, { x: pin.relativeCoordinate.cx, y: pin.relativeCoordinate.cy })
+          var rotateAng = items[itemId].position.rotate
+          UnitVector.ang += rotateAng
+          items[itemId].position.transformX = aPin[0] - (UnitVector.unit * Math.cos((UnitVector.ang) * (3.14159 / 180)))
+          items[itemId].position.transformY = aPin[1] - (UnitVector.unit * Math.sin((UnitVector.ang) * (3.14159 / 180)))
+          SvgTool_.updatePinsPosition(itemId, than)
         }
       })
     })
