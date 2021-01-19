@@ -3,6 +3,7 @@
     :id="itemId"
     :transform="
       'translate(' + item.position.transformX + ',' + item.position.transformY + ')'
+        +' rotate('+item.position.rotate+')'
     "
     @mousedown="touchItem($event)"
   >

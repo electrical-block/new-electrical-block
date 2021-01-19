@@ -9,11 +9,11 @@ export default function addItem (itemName, that) {
     name: itemName,
     position: {
       transformX: 200,
-      transformY: 30
+      transformY: 30,
+      rotate: 0
     },
     class: 'item-off'
   }
-
   addItemPins(itemName, id, that)
 }
 

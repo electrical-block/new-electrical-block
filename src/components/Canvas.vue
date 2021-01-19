@@ -5,12 +5,14 @@
       width="600"
       height="300"
       :viewBox="svgMove.x + ' ' + svgMove.y + ' ' + svgMove.w + ' ' + svgMove.h"
+      tabindex="0"
       @mousedown="touchSvg($event)"
       @mousemove="touchSvg($event)"
       @mouseup="touchSvg($event)"
       @mousewheel="touchSvg($event)"
       @drop="getDropItem($event)"
       @dragover="allowDrop($event)"
+      @keydown="keyup($event)"
     >
       <rect
         x="0"
@@ -54,6 +56,7 @@ import addItem from '@/js/addItem.js'
 import touchItem from '@/js/touchItem.js'
 import touchPin from '@/js/touchPin.js'
 import touchSvg from '@/js/touchSvg.js'
+import keyBoard from '@/js/keyBoard.js'
 
 export default {
   components: { Item, Line },
@@ -116,6 +119,9 @@ export default {
       this.svgMove.y -= 150 * (scaleRatio - 1) * (this.svgMove.h / 300)
       this.svgMove.w *= scaleRatio
       this.svgMove.h *= scaleRatio
+    },
+    keyup (event) {
+      keyBoard(event, this)
     }
   }
 }
