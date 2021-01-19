@@ -44,7 +44,6 @@ export default function touchItem (event, itemId, than) {
     })
     pins[itemMove.id].forEach(pin => {
       a.forEach(aPin => {
-        console.log(calculateVectorLen(pin.svgCoordinate, { x: aPin[0], y: aPin[1] }))
         if (calculateVectorLen(pin.svgCoordinate, { x: aPin[0], y: aPin[1] }) < 8) {
           var UnitVector = SvgTool_.calculateUnitVector({ x: 0, y: 0 }, { x: pin.relativeCoordinate.cx, y: pin.relativeCoordinate.cy })
           var rotateAng = items[itemId].position.rotate
