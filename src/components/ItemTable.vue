@@ -6,6 +6,8 @@
       :key="`image-${index}`"
       :src="item.path"
       draggable="true"
+      width="50"
+      height="50"
       @dragstart="setData($event, item.name)"
     >
   </div>
@@ -15,17 +17,17 @@
 export default {
   data () {
     return {
-      items: {
-        resistor: {
-          path: require('@/assets/Resistor.png'),
-          name: 'Resistor'
-        },
-        led: {
-          path: require('@/assets/Led.png'),
-          name: 'Led'
-        }
-      }
+      items: {}
     }
+  },
+  created () {
+    const itemDescription = require('@/json/itemDescription.json')
+    Object.keys(itemDescription).forEach((key) => {
+      this.items[key] = {
+        path: require('@/assets/' + key + '.png'),
+        name: key
+      }
+    })
   },
   methods: {
     setData (event, itemName) {

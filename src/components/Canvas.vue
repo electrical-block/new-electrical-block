@@ -96,6 +96,7 @@ export default {
     },
     getDropItem (event) {
       if (event.dataTransfer.getData('item-name') !== '') {
+        event.preventDefault()
         this.addItem(event.dataTransfer.getData('item-name'))
       }
     },
