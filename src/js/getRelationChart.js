@@ -1,11 +1,12 @@
 
-export default function getRelationChart (than) {
+export default function getRelationChart (then) {
   var RelationChart = []
   var flag = 0
   var unm = 0
-  Object.keys(than.pins).forEach(itemId => {
+  var index = 0
+  Object.keys(then.pins).forEach((itemId) => {
     unm = 0
-    than.pins[itemId].forEach(pin => {
+    then.pins[itemId].forEach(pin => {
       flag = 1
       RelationChart.forEach(e => {
         if (e.indexOf(itemId + '=>' + String(unm)) !== -1) {
@@ -13,32 +14,33 @@ export default function getRelationChart (than) {
         }
       })
       if (flag === 1) {
-        RelationChart.push(deepTraceLineFun(pin.svgCoordinate, 'Nope', than))
+        RelationChart[String(index)] = deepTraceLineFun(pin.svgCoordinate, 'Nope', then)
+        index++
       }
       unm += 1
     })
   })
   return RelationChart
 }
-function deepTraceLineFun (pin, onlineid = 'Nope', than) {
+function deepTraceLineFun (pin, onlineid = 'Nope', then) {
   var jret = []
-  jret.push(getIdforxy(pin, than))
-  Object.keys(than.lines).forEach(lineId => {
-    if (than.lines[lineId][0] === pin && onlineid !== lineId) {
-      jret = jret.concat(deepTraceLineFun(than.lines[lineId][than.lines[lineId].length - 1], lineId, than))
+  jret.push(getIdforxy(pin, then))
+  Object.keys(then.lines).forEach(lineId => {
+    if (then.lines[lineId][0] === pin && onlineid !== lineId) {
+      jret = jret.concat(deepTraceLineFun(then.lines[lineId][then.lines[lineId].length - 1], lineId, then))
     }
-    if (than.lines[lineId][than.lines[lineId].length - 1] === pin && onlineid !== lineId) {
-      jret = jret.concat(deepTraceLineFun(than.lines[lineId][0], lineId, than))
+    if (then.lines[lineId][then.lines[lineId].length - 1] === pin && onlineid !== lineId) {
+      jret = jret.concat(deepTraceLineFun(then.lines[lineId][0], lineId, then))
     }
   })
   return jret
 }
-function getIdforxy (xy, than) {
+function getIdforxy (xy, then) {
   var j = 'Nope'
   var unm = 0
-  Object.keys(than.pins).forEach(itemId => {
+  Object.keys(then.pins).forEach(itemId => {
     unm = 0
-    than.pins[itemId].forEach(pin => {
+    then.pins[itemId].forEach(pin => {
       if (xy === pin.svgCoordinate) {
         j = itemId + '=>' + unm
       }
