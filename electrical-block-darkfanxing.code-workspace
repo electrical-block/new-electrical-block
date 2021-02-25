@@ -42,6 +42,7 @@
             "\\.tsx?$",
             "\\.vue$"
         ],
-        "css.lint.unknownProperties": "ignore"
+        "css.lint.unknownProperties": "ignore",
+        "css.lint.unknownAtRules": "ignore"
     }
 }
