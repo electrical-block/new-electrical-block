@@ -40,6 +40,9 @@ export default function addItem (itemName, that, CPUS) {
     case 'sawtoothWave':
       that.items[id].data.frequency = 0
       break
+    case 'monitor':
+      that.items[id].data.voltage = 0
+      break
   }
   // add event
   addItemPins(itemName, id, that)

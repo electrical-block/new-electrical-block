@@ -30,7 +30,7 @@ export default function addevent (id, itemName, then, simulationFuntion, lineVol
     case 'monitor':// 監視器
       simulationFuntion[id].Function = (rundata) => {
         if (rundata.clock % 50000 === 0) {
-          console.log(lineVoltage[id + '=>0'].v)
+          then.items[id].data.voltage = lineVoltage[id + '=>0'].v
         }
       }
       break

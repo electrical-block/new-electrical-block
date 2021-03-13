@@ -57,16 +57,21 @@ C107.9,62.2,105.7,64.4,103,64.4z"
       y="38"
       style="text-anchor: middle;  dominant-baseline: middle;"
     >
-      {{ value }}
+      {{ item.data.voltage }}
     </text>
   </g>
 </template>
 
 <script>
 export default {
+  props: {
+    item: {
+      type: Object,
+      required: true
+    }
+  },
   data () {
     return {
-      value: 0
     }
   },
   methods: {

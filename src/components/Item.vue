@@ -8,28 +8,44 @@
     @mousedown="touchItem($event)"
   >
     <g v-if="item.name=='sawtoothWave'">
-      <SawtoothWave />
+      <SawtoothWave
+        :item="item"
+      />
     </g>
     <g v-if="item.name=='adder'">
-      <Adder />
+      <Adder
+        :item="item"
+      />
     </g>
     <g v-if="item.name=='arduinoUno'">
-      <ArduinoUno />
+      <ArduinoUno
+        :item="item"
+      />
     </g>
     <g v-if="item.name=='monitor'">
-      <Monitor />
+      <Monitor
+        :item="item"
+      />
     </g>
     <g v-if="item.name=='multiplier'">
-      <Multiplier />
+      <Multiplier
+        :item="item"
+      />
     </g>
     <g v-if="item.name=='outPutConstant'">
-      <OutPutConstant />
+      <OutPutConstant
+        :item="item"
+      />
     </g>
     <g v-if="item.name=='squareWaveGenerator'">
-      <SquareWaveGenerator />
+      <SquareWaveGenerator
+        :item="item"
+      />
     </g>
     <g v-if="item.name=='subtractor'">
-      <Subtractor />
+      <Subtractor
+        :item="item"
+      />
     </g>
     <circle
       v-for="(pin, index) in pins"
