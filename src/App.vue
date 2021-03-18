@@ -1,18 +1,31 @@
 <template>
-  <div style="display: flex; justify-content: space-around">
-    <Canvas />
-    <ItemTable />
+  <div>
+    <Header />
+    <Canvas :svg-width-compensation="svgWidthCompensation" />
+    <ItemTable @collapseItemTable="isReduceSvgWidth" />
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
 import Canvas from '@/components/Canvas.vue'
 import ItemTable from '@/components/ItemTable.vue'
 
 export default {
   components: {
     Canvas,
-    ItemTable
+    ItemTable,
+    Header
+  },
+  data () {
+    return {
+      svgWidthCompensation: false
+    }
+  },
+  methods: {
+    isReduceSvgWidth (isCollapse) {
+      this.svgWidthCompensation = isCollapse
+    }
   }
 }
 </script>
@@ -24,6 +37,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 </style>

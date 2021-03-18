@@ -70,7 +70,9 @@ import SquareWaveGenerator from '@/components/ItemVue/squareWaveGenerator.vue'
 import Subtractor from '@/components/ItemVue/subtractor.vue'
 
 export default {
-  components: { SawtoothWave, Subtractor, SquareWaveGenerator, OutPutConstant, Multiplier, Monitor, ArduinoUno, Adder },
+  components: {
+    SawtoothWave, Subtractor, SquareWaveGenerator, OutPutConstant, Multiplier, Monitor, ArduinoUno, Adder
+  },
   props: {
     itemId: {
       type: String,
