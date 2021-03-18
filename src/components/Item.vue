@@ -7,10 +7,46 @@
     "
     @mousedown="touchItem($event)"
   >
-    <!-- 未來待改，目前先用 v-html -->
-    <!-- eslint-disable -->
-    <g v-html="svgInnerHTML" :class=item.class></g>
-    <!-- eslint-enable -->
+    <g v-if="item.name=='sawtoothWave'">
+      <SawtoothWave
+        :item="item"
+      />
+    </g>
+    <g v-if="item.name=='adder'">
+      <Adder
+        :item="item"
+      />
+    </g>
+    <g v-if="item.name=='arduinoUno'">
+      <ArduinoUno
+        :item="item"
+      />
+    </g>
+    <g v-if="item.name=='monitor'">
+      <Monitor
+        :item="item"
+      />
+    </g>
+    <g v-if="item.name=='multiplier'">
+      <Multiplier
+        :item="item"
+      />
+    </g>
+    <g v-if="item.name=='outPutConstant'">
+      <OutPutConstant
+        :item="item"
+      />
+    </g>
+    <g v-if="item.name=='squareWaveGenerator'">
+      <SquareWaveGenerator
+        :item="item"
+      />
+    </g>
+    <g v-if="item.name=='subtractor'">
+      <Subtractor
+        :item="item"
+      />
+    </g>
     <circle
       v-for="(pin, index) in pins"
       :id="index"
@@ -24,7 +60,17 @@
 </template>
 
 <script>
+import SawtoothWave from '@/components/ItemVue/sawtoothWave.vue'
+import Adder from '@/components/ItemVue/adder.vue'
+import ArduinoUno from '@/components/ItemVue/arduinoUno.vue'
+import Monitor from '@/components/ItemVue/monitor.vue'
+import Multiplier from '@/components/ItemVue/multiplier.vue'
+import OutPutConstant from '@/components/ItemVue/outPutConstant.vue'
+import SquareWaveGenerator from '@/components/ItemVue/squareWaveGenerator.vue'
+import Subtractor from '@/components/ItemVue/subtractor.vue'
+
 export default {
+  components: { SawtoothWave, Subtractor, SquareWaveGenerator, OutPutConstant, Multiplier, Monitor, ArduinoUno, Adder },
   props: {
     itemId: {
       type: String,
@@ -44,8 +90,6 @@ export default {
   },
   created () {
     const itemDescription = require('@/json/itemDescription.json')
-
-    this.svgInnerHTML = itemDescription[this.item.name].innerHTML
     this.pins = itemDescription[this.item.name].pins
   },
   methods: {

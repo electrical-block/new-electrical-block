@@ -1,0 +1,241 @@
+<template>
+  <g>
+    <rect
+      y="0.5"
+      class="st0"
+      width="113.4"
+      height="56.7"
+    />
+    <circle
+      class="st1"
+      cx="107.7"
+      cy="28.8"
+      r="1.4"
+    />
+    <path
+      class="st2"
+      d="M35.4,45.8"
+    />
+    <circle
+      class="st1"
+      cx="5.7"
+      cy="14.2"
+      r="1.4"
+    />
+    <path
+      class="st3"
+      d="M96.5,45H16.9c-1.1,0-2,0.9-2,2v4.2c0,1.1,0.9,2,2,2h79.6c1.1,0,2-0.9,2-2V47C98.4,45.9,97.6,45,96.5,45z"
+    />
+    <path
+      class="st4"
+      d="M52,53.1h-6.3c-1.6,0-2.9-1.3-2.9-2.9v-2.3c0-1.6,1.3-2.9,2.9-2.9H52c1.6,0,2.9,1.3,2.9,2.9v2.3
+C54.9,51.8,53.6,53.1,52,53.1z"
+    />
+    <rect
+      x="17.4"
+      y="6.6"
+      class="st5"
+      width="78.7"
+      height="32.7"
+    />
+    <path
+      class="st5"
+      d="M17.4,22.1"
+    />
+    <path
+      class="st5"
+      d="M75,22.8"
+    />
+    <line
+      class="st6"
+      x1="17.4"
+      y1="22.9"
+      x2="96"
+      y2="22.9"
+    />
+    <line
+      class="st6"
+      x1="17.4"
+      y1="34"
+      x2="96"
+      y2="34"
+    />
+    <line
+      class="st7"
+      x1="17.4"
+      y1="11.6"
+      x2="96"
+      y2="11.6"
+    />
+    <line
+      class="st6"
+      x1="56.3"
+      y1="6.6"
+      x2="56.3"
+      y2="39.2"
+    />
+    <line
+      class="st6"
+      x1="64"
+      y1="6.6"
+      x2="64"
+      y2="39.2"
+    />
+    <line
+      class="st6"
+      x1="48.5"
+      y1="6.6"
+      x2="48.5"
+      y2="39.2"
+    />
+    <line
+      class="st6"
+      x1="71.8"
+      y1="6.6"
+      x2="71.8"
+      y2="39.2"
+    />
+    <line
+      class="st6"
+      x1="40.8"
+      y1="6.4"
+      x2="40.8"
+      y2="39.1"
+    />
+    <line
+      class="st6"
+      x1="33"
+      y1="6.4"
+      x2="33"
+      y2="39.1"
+    />
+    <line
+      class="st6"
+      x1="25.3"
+      y1="6.4"
+      x2="25.3"
+      y2="39.1"
+    />
+    <line
+      class="st6"
+      x1="79.5"
+      y1="6.6"
+      x2="79.5"
+      y2="39.2"
+    />
+    <line
+      class="st6"
+      x1="87.3"
+      y1="6.4"
+      x2="87.3"
+      y2="39.1"
+    />
+    <line
+      class="st8"
+      x1="87.3"
+      y1="11.8"
+      x2="87.3"
+      y2="34"
+    />
+    <line
+      class="st8"
+      x1="56.3"
+      y1="11.7"
+      x2="40.8"
+      y2="11.7"
+    />
+    <line
+      class="st8"
+      x1="71.8"
+      y1="11.8"
+      x2="71.8"
+      y2="34"
+    />
+    <line
+      class="st8"
+      x1="56.3"
+      y1="11.8"
+      x2="56.3"
+      y2="34"
+    />
+    <line
+      class="st8"
+      x1="40.8"
+      y1="11.8"
+      x2="40.8"
+      y2="34"
+    />
+    <line
+      class="st8"
+      x1="25.3"
+      y1="11.8"
+      x2="25.3"
+      y2="34"
+    />
+    <line
+      class="st8"
+      x1="71.8"
+      y1="34"
+      x2="56.3"
+      y2="34"
+    />
+    <line
+      class="st8"
+      x1="87.3"
+      y1="11.8"
+      x2="71.8"
+      y2="11.8"
+    />
+    <line
+      class="st8"
+      x1="40.8"
+      y1="34"
+      x2="25.3"
+      y2="34"
+    />
+    <line
+      class="st8"
+      x1="25.1"
+      y1="11.6"
+      x2="17.4"
+      y2="11.6"
+    />
+    <line
+      class="st8"
+      x1="95.1"
+      y1="34"
+      x2="87.3"
+      y2="34"
+    />
+    <circle
+      class="st1"
+      cx="5.7"
+      cy="42.5"
+      r="1.4"
+    />
+  </g>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+    }
+  },
+  methods: {
+
+  }
+}
+</script>
+
+<style scoped>
+.st0{fill:#A6DAEA;stroke:#000000;stroke-miterlimit:10;}
+.st1{fill:#3D4320;stroke:#000000;stroke-miterlimit:10;}
+.st2{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+.st3{fill:none;stroke:#000000;stroke-miterlimit:10;}
+.st4{fill:#002434;stroke:#000000;stroke-miterlimit:10;}
+.st5{fill:#E7F3FC;stroke:#000000;stroke-miterlimit:10;}
+.st6{fill:none;stroke:#000000;stroke-width:0.1;stroke-miterlimit:10;}
+.st7{fill:#FCEEE6;stroke:#000000;stroke-width:0.1;stroke-miterlimit:10;}
+.st8{fill:#203E96;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
+</style>
