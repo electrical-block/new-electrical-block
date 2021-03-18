@@ -36,8 +36,8 @@ export default function touchSvg (event, that) {
       } else {
       // difference between original mouse position and current mouse position (event.offsetX / event.offsetY)
       // Consider scale of svg, so use (svgMove.w / 600) and (svgMove.h / 300)
-        svgMove.x += (mouseX - event.offsetX) * (svgMove.w / 600)
-        svgMove.y += (mouseY - event.offsetY) * (svgMove.h / 300)
+        svgMove.x += (mouseX - event.offsetX) * (svgMove.w / that.windowSize.width)
+        svgMove.y += (mouseY - event.offsetY) * (svgMove.h / that.windowSize.height)
 
         // mouse position is event position now
         mouseX = event.offsetX
