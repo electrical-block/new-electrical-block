@@ -1,4 +1,4 @@
-import SvgTool_ from '@/js/svgTool.js'
+import SvgTool_ from './svgTool.js'
 const SvgTool = new SvgTool_()
 
 var mouseX = 0

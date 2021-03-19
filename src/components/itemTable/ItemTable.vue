@@ -53,7 +53,7 @@ export default {
     }
   },
   created () {
-    const itemDescription = require('@/json/itemDescription.json')
+    const itemDescription = require('@/components/app/item/itemDescription.json')
     Object.keys(itemDescription).forEach((key) => {
       this.items[key] = {
         path: require('@/assets/' + key + '.png'),

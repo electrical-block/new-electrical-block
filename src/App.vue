@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import Canvas from '@/components/Canvas.vue'
-import ItemTable from '@/components/ItemTable.vue'
+import Header from '@/components/app/Header.vue'
+import Canvas from '@/components/canvas/Canvas.vue'
+import ItemTable from '@/components/itemTable/ItemTable.vue'
 
 export default {
   components: {

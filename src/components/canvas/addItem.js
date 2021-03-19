@@ -1,4 +1,4 @@
-import SvgTool from '@/js/svgTool.js'
+import SvgTool from './svgTool.js'
 const SvgTool_ = new SvgTool()
 
 export default function addItem (itemName, that, CPUS) {
@@ -50,7 +50,7 @@ export default function addItem (itemName, that, CPUS) {
 }
 
 function addItemPins (itemName, id, that) {
-  var itemDescription = require('@/json/itemDescription.json')
+  var itemDescription = require('@/components/app/item/itemDescription.json')
   const pinPosition = []
   itemDescription[itemName].pins.forEach(pin => {
     pinPosition.push({ svgCoordinate: { x: 0, y: 0 }, relativeCoordinate: { cx: pin.cx, cy: pin.cy } })

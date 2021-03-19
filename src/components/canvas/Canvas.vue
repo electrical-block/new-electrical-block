@@ -4,6 +4,7 @@
       <svg
         id="svg"
         class="fixed bottom-0"
+        style="outline: none;"
         :width="windowSize.width"
         :height="windowSize.height"
         :viewBox="svgMove.x + ' ' + svgMove.y + ' ' + svgMove.w + ' ' + svgMove.h"
@@ -16,14 +17,6 @@
         @dragover="allowDrop($event)"
         @keydown="keyup($event)"
       >
-        <rect
-          x="0"
-          y="0"
-          stroke="#2828FF"
-          stroke-width="2"
-          width="0"
-          height="0"
-        />
         <g ref="drawingContainer">
           <Line
             v-for="(line, index) in lines"
@@ -76,22 +69,22 @@
 </template>
 
 <script>
-import Item from '@/components/Item.vue'
-import Line from '@/components/Line.vue'
-import addItem from '@/js/addItem.js'
-import touchItem from '@/js/touchItem.js'
-import touchPin from '@/js/touchPin.js'
-import touchSvg from '@/js/touchSvg.js'
-import keyBoard from '@/js/keyBoard.js'
+import Item from '@/components/app/item/Item.vue'
+import Line from '@/components/canvas/Line.vue'
+import addItem from '@/components/canvas/addItem.js'
+import touchItem from '@/components/canvas/touchItem.js'
+import touchPin from '@/components/canvas/touchPin.js'
+import touchSvg from '@/components/canvas/touchSvg.js'
+import keyBoard from '@/components/canvas/keyBoard.js'
 // import MonacoEditor from 'vue-monaco-editor'
-import addevent from '@/js/addevent.js'
-import simulationrun from '@/js/simulationrun.js'
+// import addevent from '@/js/addevent.js'
+// import simulationrun from '@/js/simulationrun.js'
 
-const MHZ = 16000000
-const CPUS = []
-const simulationFuntion = {}
-const lineVoltage = {}
-let runFlag = 0
+// const MHZ = 16000000
+// const CPUS = []
+// const simulationFuntion = {}
+// const lineVoltage = {}
+// let runFlag = 0
 export default {
   components: {
     Item,
@@ -162,15 +155,16 @@ export default {
       this.windowSize.ratio = this.windowSize.width / this.windowSize.height
     },
     simulationStop () {
-      runFlag = 0
-      console.log(CPUS)
+      // runFlag = 0
+      // console.log(CPUS)
     },
-    async simulationRun () {
-      await simulationrun(this, runFlag, CPUS, MHZ, lineVoltage, simulationFuntion)
-    },
+    // async simulationRun () {
+    //   await simulationrun(this, runFlag, CPUS, MHZ, lineVoltage, simulationFuntion)
+    // },
     addItem (itemName) {
-      const id = addItem(itemName, this, CPUS)
-      addevent(id, itemName, this, simulationFuntion, lineVoltage)
+      // const id =
+      addItem(itemName, this, [])
+      // addevent(id, itemName, this, simulationFuntion, lineVoltage)
     },
     touchItem (event, itemId) {
       touchItem(event, itemId, this)

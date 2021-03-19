@@ -60,19 +60,10 @@
 </template>
 
 <script>
-import SawtoothWave from '@/components/ItemVue/sawtoothWave.vue'
-import Adder from '@/components/ItemVue/adder.vue'
-import ArduinoUno from '@/components/ItemVue/arduinoUno.vue'
-import Monitor from '@/components/ItemVue/monitor.vue'
-import Multiplier from '@/components/ItemVue/multiplier.vue'
-import OutPutConstant from '@/components/ItemVue/outPutConstant.vue'
-import SquareWaveGenerator from '@/components/ItemVue/squareWaveGenerator.vue'
-import Subtractor from '@/components/ItemVue/subtractor.vue'
+import ElectricalComponents from '@/components/electricalComponents'
 
 export default {
-  components: {
-    SawtoothWave, Subtractor, SquareWaveGenerator, OutPutConstant, Multiplier, Monitor, ArduinoUno, Adder
-  },
+  components: ElectricalComponents,
   props: {
     itemId: {
       type: String,
@@ -91,7 +82,7 @@ export default {
     }
   },
   created () {
-    const itemDescription = require('@/json/itemDescription.json')
+    const itemDescription = require('./itemDescription.json')
     this.pins = itemDescription[this.item.name].pins
   },
   methods: {

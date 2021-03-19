@@ -1,4 +1,4 @@
-import SvgTool from '@/js/svgTool.js'
+import SvgTool from './svgTool.js'
 const SvgTool_ = new SvgTool()
 
 export default function keyBoard (event, than) {
